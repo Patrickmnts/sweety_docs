@@ -10,7 +10,10 @@
 
   <body>
     <div class="container">
-      <h1>Sweety - A blood glucose companion.</h1>
+      <div class="row">
+        <%= link_to "Home", root_path, class: 'pull-left'%>
+        <h1>Sweety - A blood glucose companion.</h1>
+      </div>
 
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
