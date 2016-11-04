@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   # resources :readings
   resources :users do
     resources :readings
+    resources :reports
   end
 end

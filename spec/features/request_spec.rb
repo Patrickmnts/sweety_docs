@@ -15,7 +15,7 @@ RSpec.describe "Request Specs", :type => :feature do
 
   it 'should allow a user to see their readings from today' do
     visit "/"
-    click_link "Test User"
+    click_link "readings-link-#{@user.id}"
 
     expect(page).to have_content(@reading.value)
   end
@@ -23,14 +23,14 @@ RSpec.describe "Request Specs", :type => :feature do
   it 'should not show a users readings from yesterday' do
     new_reading = @user.readings.create(value: 213, created_at: DateTime.now - 1.day)
     visit '/'
-    click_link "Test User"
+    click_link "readings-link-#{@user.id}"
 
     expect(page).to_not have_content(new_reading.value)
   end
 
   it 'should allow a user to see the new reading form if they are under todays limit' do
     visit '/'
-    click_link "Test User"
+    click_link "readings-link-#{@user.id}"
 
     expect(page).to have_content('Submit new reading')
   end
@@ -41,7 +41,7 @@ RSpec.describe "Request Specs", :type => :feature do
     end
 
     visit '/'
-    click_link "Test User"
+    click_link "readings-link-#{@user.id}"
 
     expect(page).to_not have_content('Submit new reading')
   end
