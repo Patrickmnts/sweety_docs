@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Request Specs", :type => :feature do
+  before(:each) do
+    @user = User.create(first_name: 'Test', last_name: 'User')
+    @reading = @user.readings.create(value: 123)
+  end
+
   it "should render index view" do
     visit "/"
     expect(page).to have_content("Sweety - A blood glucose companion.")

@@ -9,6 +9,10 @@ describe "User" do
     expect(@user).to be_valid
   end
 
+  it 'should know full name' do
+    expect(@user.full_name).to eq('Patrick Test')
+  end
+
   it 'should be able to have many readings' do
     reading1 = @user.readings.create
     reading2 = @user.readings.create
