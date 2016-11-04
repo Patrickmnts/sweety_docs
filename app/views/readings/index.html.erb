@@ -7,6 +7,6 @@
   <% end %>
 
   <% if @readings.count < 4 %>
-    <%= render 'readings/form' %>
+    <%= render 'readings/form', reading: @user.readings.new  %>
   <% end %>
 </div>

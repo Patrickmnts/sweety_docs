@@ -11,6 +11,11 @@
   <body>
     <div class="container">
       <h1>Sweety - A blood glucose companion.</h1>
+
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>

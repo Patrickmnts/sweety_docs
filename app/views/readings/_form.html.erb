@@ -1,1 +1,9 @@
-<p>Submit new reading</p>
+<div class="col-md-6">
+  <p>Submit new reading</p>
+
+  <%= form_for :reading , url: { controller: 'readings', action: 'create' } do |f| %>
+    <%= f.number_field :value, placeholder: 'Submit your glucose level here' %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>
