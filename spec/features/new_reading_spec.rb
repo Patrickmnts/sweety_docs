@@ -14,4 +14,10 @@ RSpec.describe "New Reading Specs", :type => :feature do
     expect(page).to have_content("Reading successful")
     expect(page).to have_content('999')
   end
+
+  it 'should not allow a user to submit the form blank' do
+    click_button "Save Reading"
+
+    expect(page).to have_content("Value can't be blank")
+  end
 end

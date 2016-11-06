@@ -12,8 +12,13 @@ class ReadingsController < ApplicationController
       flash[:success] = "Reading successful"
       redirect_to user_readings_path(@user)
     else
-      flash[:error] = "There has been an error with your last glucose submission"
+      flash[:danger] = reading.errors.full_messages.first
+      redirect_to user_readings_path(@user)
     end
+  end
+
+  def edit
+    render 'readings/index'
   end
 
   private
