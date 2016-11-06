@@ -1,12 +1,21 @@
-<div class="col-md-6">
-  <h3>Today's readings for <%= @user.full_name %></h3>
-  <% @readings.each do |reading| %>
-    <p>
-      <%= reading.value %>
-    </p>
-  <% end %>
+<h3>Dashboard for <%= @user.full_name %></h3>
 
-  <% if @readings.count < 4 %>
-    <%= render 'readings/form', reading: @user.readings.new  %>
-  <% end %>
+<div class="row">
+  <div class="col-md-4">
+    <h4>Today's Readings</h4>
+    <ul>
+      <% @readings.each do |reading| %>
+        <li>
+          <%= reading.value %> mg/dl
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-md-6">
+    <% if @readings.count < 4 %>
+      <h4>New Reading</h4>
+      <%= render 'readings/form', reading: @user.readings.new  %>
+    <% end %>
+  </div>
 </div>

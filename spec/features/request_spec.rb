@@ -32,7 +32,7 @@ RSpec.describe "Request Specs", :type => :feature do
     visit '/'
     click_link "readings-link-#{@user.id}"
 
-    expect(page).to have_content('Submit new reading')
+    expect(page).to have_content('New Reading')
   end
 
   it 'should not allow a user to see new reading form if they are at the daily max' do
@@ -43,6 +43,6 @@ RSpec.describe "Request Specs", :type => :feature do
     visit '/'
     click_link "readings-link-#{@user.id}"
 
-    expect(page).to_not have_content('Submit new reading')
+    expect(page).to_not have_content('New Reading')
   end
 end

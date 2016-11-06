@@ -1,6 +1,4 @@
-<div class="col-md-6">
-  <p>Submit new reading</p>
-
+<div>
   <%= form_for :reading , url: { controller: 'readings', action: 'create' } do |f| %>
     <%= f.number_field :value, placeholder: 'mg/dl' %>
     <%= f.hidden_field :user_id, value: @user.id %>
