@@ -1,46 +1,28 @@
 <div class="row">
   <h2>Run a report for <%= @user.full_name %></h2>
 
-  <div class="col-md-12">
-    <p>
-      <strong>Types:</strong>
-      <ul><strong>Daily:</strong> Data for only selected day.</ul>
-      <ul><strong>Month-to-date:</strong> Data from beginning of month ending on selected day.</ul>
-      <ul><strong>Monthly:</strong> Data from one month (30 days) prior to selected day.</ul>
+  <div class="col-md-6">
+    <p class='well'>
+      <span><strong>Daily:</strong> Data for only selected day.</span><br/>
+      <span><strong>Month-to-date:</strong> Data from beginning of month ending on selected day.</span><br/>
+      <span><strong>Monthly:</strong> Data from one month (30 days) prior to selected day.</span><br/>
     </p>
+
+  </div>
+  <div class="col-md-6">
 
     <%= form_for @report, url: user_reports_path(@user) do |f| %>
 
       <%= f.hidden_field :user_id, value: @user.id %>
 
-      <%= f.label :report_type, 'Report Type' %><br/>
-      <%= f.select :report_type, [['Daily', 'daily'], ['Month to Date', 'month-to-date'], ['Monthly', 'monthly']] %>
+      <%= f.label :report_type, 'Report Type:' %>
+      <%= f.select :report_type, [['Daily', 'daily'], ['Month to Date', 'month-to-date'], ['Monthly', 'monthly']] %><br/>
 
-      <%= f.label :start_date, 'Date' %><br/>
-      <%= f.date_field :end_date, value: Date.today, max: Date.today %>
+      <%= f.label :start_date, 'Date:' %>
+      <%= f.date_field :end_date, value: Date.today, max: Date.today %><br/>
 
-      <br/>
-      <%= f.submit "Run Report" %>
+      <!-- <br/> -->
+      <%= f.submit "Run Report", class: 'btn btn-lg' %>
     <% end %>
   </div>
 </div>
-
-<!-- <script type="text/javascript">
-  function set_page_state_for(report_type) {
-    if(report_type == 'daily') {
-      console.log('DAILY')
-    } else if (report_type == 'month-to-date') {
-      console.log('Month TO Date')
-
-    } else if (report_type == 'monthly') {
-      console.log('MonthLY')
-
-    }
-  }
-
-  $('#report_report_type').on('change', function() {
-    set_page_state_for($(this).val());
-  });
-
-
-</script> -->

@@ -1,10 +1,15 @@
 <div class="row">
   <div class="col-md-12">
     <h3>Report Results</h3>
-    <p><strong>Start Date:</strong> <%= @report.start_date %></p>
-    <p><strong>End Date:</strong> <%= @report.end_date %></p>
-    <p><strong>Max:</strong> <%= @report.maximum %> mg/dl</p>
-    <p><strong>Min:</strong> <%= @report.minimum %> mg/dl</p>
-    <p><strong>Average:</strong> <%= @report.average %> mg/dl</p>
+    <p class='well'>
+      <span><strong>Report Type:</strong> <%= @report.report_type.humanize %></span><br/>
+      <span><strong>Start Date:</strong> <%= @report.start_date %></span><br/>
+      <span><strong>End Date:</strong> <%= @report.end_date %></span><br/>
+      <span><strong>Max:</strong> <%= @report.maximum %> mg/dl</span><br/>
+      <span><strong>Min:</strong> <%= @report.minimum %> mg/dl</span><br/>
+      <span><strong>Average:</strong> <%= @report.average %> mg/dl</span><br/>
+    </p>
+
+    <%= link_to 'Back', new_user_report_path(@user) %>
   </div>
 </div>

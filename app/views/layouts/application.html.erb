@@ -11,8 +11,12 @@
   <body>
     <div class="container">
       <div class="row">
-        <%= link_to "Home", root_path, class: 'pull-left'%>
-        <h1>Sweety - A blood glucose companion.</h1>
+        <div class="col-md-7">
+          <h1>Sweety - A blood glucose companion.</h1>
+        </div>
+        <div class="col-md-4">
+          <%= link_to "Home", root_path, class: 'btn btn-info', id: 'home-link'%>
+        </div>
       </div>
 
       <% flash.each do |key, value| %>

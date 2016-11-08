@@ -1,8 +1,12 @@
 <div class="col-md-6">
-  <h2>Current users of Sweety</h2>
-  <% @users.each do |user| %>
-    <p><strong><%= user.full_name %></strong></p>
-    <p><%= link_to 'Submit New Readings', user_readings_path(user), id: "readings-link-#{user.id}" %> -
-       <%= link_to 'Run Report on Past Readings', new_user_report_path(user), id: "reports-link-#{user.id}" %></p>
-  <% end %>
+  <h3>Current Users</h3>
+  <table class='table table-striped table-bordered'>
+    <% @users.each do |user| %>
+      <tr>
+        <td><strong><%= user.full_name %></strong></td>
+        <td><%= link_to 'Submit New Readings', user_readings_path(user), id: "readings-link-#{user.id}" %></td>
+        <td><%= link_to 'Run Report', new_user_report_path(user), id: "reports-link-#{user.id}" %></td>
+       </tr>
+    <% end %>
+  </table>
 </div>

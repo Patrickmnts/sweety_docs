@@ -9,7 +9,7 @@ RSpec.describe "Request Specs", :type => :feature do
   it "should render index view" do
     visit "/"
     expect(page).to have_content("Sweety - A blood glucose companion.")
-    expect(page).to have_content("Current users of Sweety")
+    expect(page).to have_content("Current Users")
     expect(page).to have_content(@user.full_name)
   end
 
