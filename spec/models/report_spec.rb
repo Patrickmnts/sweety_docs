@@ -44,5 +44,29 @@ describe "Report" do
    end
  end
 
+ describe 'month-to-date' do
+   before(:each) do
+     todays_date = DateTime.now.utc.to_date
+     @report = @user.reports.create(report_type: 'month-to-date', end_date: todays_date)
+     @report.generate
+   end
+
+   it 'should set start_date at beginning of month' do
+     expect(@report.start_date).to eq(@report.end_date.beginning_of_month)
+   end
+ end
+
+ describe 'monthly' do
+   before(:each) do
+     todays_date = DateTime.now.utc.to_date
+     @report = @user.reports.create(report_type: 'monthly', end_date: todays_date)
+     @report.generate
+   end
+
+   it 'should set start_date at a month prior' do
+     expect(@report.start_date).to eq(@report.end_date - 1.month)
+   end
+ end
+
 
 end
