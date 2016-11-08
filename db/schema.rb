@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104202233) do
+ActiveRecord::Schema.define(version: 20161106202112) do
 
   create_table "readings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "value"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.date    "start_date"
+    t.date    "end_date"
+    t.string  "report_type"
+    t.integer "maximum"
+    t.integer "minimum"
+    t.integer "average"
+    t.integer "user_id"
+    t.index ["end_date"], name: "index_reports_on_end_date", using: :btree
+    t.index ["report_type"], name: "index_reports_on_report_type", using: :btree
+    t.index ["start_date"], name: "index_reports_on_start_date", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
