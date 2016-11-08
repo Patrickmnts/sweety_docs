@@ -1,5 +1,11 @@
 # README
 
+## Thank you for taking the time to review my submission.
+
+### Setup
+  Ruby version: 2.3.1
+  run `rake db:seed` following migrations to populate test data.
+
 ## Requirements
 Sweety
 ———————
@@ -25,7 +31,7 @@ blood glucose level readings and view reports on those readings.
 Data Entry
 A user should be able to enter data up to four times per day. Data is
 entered as a single integer value representing blood glucose levels
-(measured in mg/dl). Data should be validated to ensure that a level is 
+(measured in mg/dl). Data should be validated to ensure that a level is
 included in the entry and that there are no more than 4 entries on a given day.
 
 Data entry
